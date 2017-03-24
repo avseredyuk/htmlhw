@@ -22,20 +22,38 @@ body, html {
     margin: 0;
 }
 
-form  { display: table;      }
-p     { display: table-row;  }
-label { display: table-cell; }
-input { display: table-cell; }
+label{
+    display: inline-block;
+    float: left;
+    clear: left;
+    width: 125px;
+    text-align: right;
+    margin-top: 5px;
+}
+
+input {
+    display: inline-block;
+    float: left;
+    margin: 5px;
+}
+
+form {
+    margin-top: 10px;
+}
+
+th {
+    font-size: 12px;
+}
 
 #header {
     background: #f1f1f1;
-    height: 5%;
     width: 100%;
     text-align: center;
 }
 
 #navigation {
     padding-right: 5px;
+    margin: 5px;
     text-align: right;
 }
 
