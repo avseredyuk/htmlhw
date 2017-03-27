@@ -8,11 +8,9 @@
 <div id="main">
 
     <div id="header">
-        <div style="font-size: 30px; display: table; margin: 0 auto;">
             <span><img src="img/folder-48.png"/></span>
             <span>Файловое хранилище v 0.01</span>
             <span><img src="img/folder-48.png"/></span>
-        </div>
     </div>
 
     <hr class="divider"/>
@@ -20,17 +18,17 @@
     </div>
     <hr class="divider"/>
 
-    <div id="menu"><div style="padding: 10px 10px 10px 10px;"></div>
-    </div>
+    <div id="menu"></div>
 
-    <div id="content"><div style="padding: 10px 10px 10px 10px;">
-        <form action="file2.html">
-            <label>Логин:</label><input type="text" name="login">
-            <label>Пароль:</label><input type="password" name="password">
-            <label>Запомнить:</label><input type="checkbox" name="remember">
-            <label>&nbsp;</label><input type="submit" value="Войти">
-        </form>
-    </div>
+    <div id="content">
+        <div class="padded">
+            <form action="file2.html">
+                <label class="loginlabel">Логин:</label><input class="login" type="text" name="login">
+                <label class="loginlabel">Пароль:</label><input class="login" type="password" name="password">
+                <label class="loginlabel">Запомнить:</label><input class="login" type="checkbox" name="remember">
+                <label class="loginlabel">&nbsp;</label><input class="login" type="submit" value="Войти">
+            </form>
+        </div>
     </div>
 
     <div id="news"><div style="padding: 10px 10px 10px 10px;">
@@ -48,10 +46,10 @@
 
     <div id="clear">
     </div>
+</div>
 
-    <div class="footer"><div style="font-size: 18px; padding-top: 10px;">&copy; EPAM RD PHP Training</div>
-    </div>
-
+<div class="footer"><div style="font-size: 18px; padding-top: 10px;">
+    &copy; EPAM RD PHP Training</div>
 </div>
 
 </body>
