@@ -3,6 +3,7 @@
     <meta charset="UTF-8">
     <title>Мега-хранилище котиков</title>
     <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <script src="js/mylib.js"></script>
 </head>
 <body>
 <div id="main">
@@ -14,7 +15,7 @@
     </div>
 
     <hr class="divider"/>
-    <div id="navigation">Необходимо выполнить вход в систему или <a href="register.html">зарегистрироваться</a>
+    <div id="navigation">Необходимо выполнить вход в систему
     </div>
     <hr class="divider"/>
 
@@ -22,12 +23,16 @@
 
     <div id="content">
         <div class="padded">
-            <form action="file2.html">
-                <label class="loginlabel">Логин:</label><input class="login" type="text" name="login">
-                <label class="loginlabel">Пароль:</label><input class="login" type="password" name="password">
-                <label class="loginlabel">Запомнить:</label><input class="login" type="checkbox" name="remember">
-                <label class="loginlabel">&nbsp;</label><input class="login" type="submit" value="Войти">
+            <form onsubmit="return checker();" action="file2.html">
+                <label class="loginlabel">Логин:</label><input id="login" class="login" type="text" name="login">
+                <label class="loginlabel">Пароль:</label><input id="password" class="login" type="password" name="password">
+                <label class="loginlabel">&nbsp;</label><input id="register" class="login" type="submit" value="Зарегистрироваться">
+
+                <div id="errorStatus" style="display:none">
+                    <a id="errorText"></a>
+                </div>
             </form>
+
         </div>
     </div>
 
