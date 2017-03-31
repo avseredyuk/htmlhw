@@ -1,21 +1,27 @@
-// window.onload = function () {
-//
-//     var btn1 = document.getElementById("register");
-//
-//     if (btn1.addEventListener)
-//     {
-//         btn1.addEventListener("click",
-//             function () {
-//                 var pattern = new RegExp("\d\d\d");
-//                 var passwordString = document.getElementById("password").value;
-//                 if (pattern.test(passwordString)) {
-//
-//                 }
-//
-//             },
-//             false);
-//     }
-// }
+function sort_table(tbodyid, col, asc) {
+    var tbody = document.getElementById(tbodyid);
+    var rows = tbody.rows,
+        rlen = rows.length,
+        arr = new Array(),
+        i, j, cells, clen;
+    // fill the array with values from the table
+    for (i = 0; i < rlen; i++) {
+        cells = rows[i].cells;
+        clen = cells.length;
+        arr[i] = new Array();
+        for (j = 0; j < clen; j++) {
+            arr[i][j] = cells[j].innerHTML;
+        }
+    }
+    // sort the array by the specified column number (col) and order (asc)
+    arr.sort(function (a, b) {
+        return (a[col] == b[col]) ? 0 : ((a[col] > b[col]) ? asc : -1 * asc);
+    });
+    // replace existing rows with new rows created from the sorted array
+    for (i = 0; i < rlen; i++) {
+        rows[i].innerHTML = "<td>" + arr[i].join("</td><td>") + "</td>";
+    }
+}
 
 function checker() {
     return checkLogin() && checkPassword();
