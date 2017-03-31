@@ -14,6 +14,14 @@
             }
 
             function drag(elementToDrag, event) {
+                var counterElement = document.getElementById("count");
+                var basket = document.getElementById("basket");
+                var basketX = parseInt(basket.style.left);
+                var basketY = parseInt(basket.style.top);
+                var basketW = parseInt(basket.style.width);
+                var basketH = parseInt(basket.style.height);
+                var inside = false;
+
                 // координаты мыши в начале перетаскивания.
                 var startX = event.clientX,
                         startY = event.clientY;
@@ -33,9 +41,22 @@
                 function moveHandler(e) {
                     if (!e) e = window.event;
 
+                    var newX = (e.clientX - deltaX);
+                    var newY = (e.clientY - deltaY);
+
                     // перемещаем элемент с учетом отступа от первоначального клика.
-                    elementToDrag.style.left = (e.clientX - deltaX) + "px";
-                    elementToDrag.style.top = (e.clientY - deltaY) + "px";
+                    elementToDrag.style.left = newX + "px";
+                    elementToDrag.style.top = newY + "px";
+
+                    if ((newX >= basketX) && (newX <= (basketX + basketW))
+                        && (newY >= basketY) && (newY <= (basketY + basketH))) {
+                        if (inside == false) {
+                            counterElement.innerHTML = parseInt(counterElement.innerHTML) + 1;
+                        }
+                        inside = true;
+                    } else {
+                        inside = false;
+                    }
                 }
 
                 function upHandler(e) {
@@ -48,10 +69,11 @@
         })()
     </script>
 </head>
-<body>
-<div id="ball" style="position: absolute; left: 128px; top: 128px; height: 128px; width: 128px; background-image: url('img/ball.png')">
+<body bgcolor="#f5f5dc">
+<div id="basket" style="position: absolute; left: 320px; top: 320px; height: 200px; width: 200px; background-image: url('img/basket.png')">
 </div>
-<div id="basket" style="position: absolute; left: 640px; top: 640px; height: 186px; width: 256px; background-image: url('img/basket.png')">
+<div id="ball" style="position: absolute; left: 50px; top: 50px; height: 128px; width: 128px; background-image: url('img/ball.png')">
 </div>
+<span id="count">0</span>
 </body>
 </html>
